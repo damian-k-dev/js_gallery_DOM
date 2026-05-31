@@ -6,7 +6,14 @@ const largeImg = document.querySelector('#largeImg');
 gallery.addEventListener('click', (e) => {
   e.preventDefault();
 
-  const link = e.target.closest('a').href;
+  const linkElement = e.target.closest('a');
+  const linkElHRef = e.target.closest('a').href;
 
-  largeImg.src = link;
+  linkElement.setAttribute('data-link', linkElHRef);
+
+  if (!linkElement) {
+    return;
+  }
+
+  largeImg.src = linkElement.getAttribute('data-link');
 });
