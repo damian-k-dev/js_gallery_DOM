@@ -7,13 +7,14 @@ gallery.addEventListener('click', (e) => {
   e.preventDefault();
 
   const linkElement = e.target.closest('a');
-  const linkElHRef = e.target.closest('a').href;
-
-  linkElement.setAttribute('data-link', linkElHRef);
 
   if (!linkElement) {
     return;
   }
+
+  const linkElHRef = e.target.closest('a').href;
+
+  linkElement.setAttribute('data-link', linkElHRef);
 
   largeImg.src = linkElement.getAttribute('data-link');
 });
